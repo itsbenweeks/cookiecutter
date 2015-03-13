@@ -24,6 +24,8 @@ def prompt_for_config(context, no_input=False):
     """
     cookiecutter_dict = {}
     env = Environment()
+    env.comment_start_string = '{{{#'
+    env.comment_end_string = '#}}'
 
     for key, raw in iteritems(context['cookiecutter']):
         raw = raw if is_string(raw) else str(raw)

@@ -190,6 +190,8 @@ def generate_files(repo_dir, context=None, output_dir='.'):
 
     with work_in(template_dir):
         env = Environment(keep_trailing_newline=True)
+        env.comment_start_string = '{{#'
+        env.comment_end_string = '#}}'
         env.loader = FileSystemLoader('.')
 
         for root, dirs, files in os.walk('.'):
